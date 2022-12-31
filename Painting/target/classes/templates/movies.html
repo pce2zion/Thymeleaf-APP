@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>movies</title>
+    <link th:rel="stylesheet" type="text/css" href="@{css/styles.css}">
+</head>
+<body>
+
+<!--<h2>Top 5 episodes</h2>-->
+<!--<table class="table" style="width: 200px"; border=" 1px,solid, black">-->
+<!--    <tr>-->
+<!--        <thead>Title</thead>-->
+<!--        <thead>Name</thead>-->
+<!--        <thead>Ratings</thead>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Breaking Bad</td>-->
+<!--        <td>Ozymandias</td>-->
+<!--        <td>10.0</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>th:text="${movies.title}"</td>-->
+<!--        <td>th:text="${movies.name}"</td>-->
+<!--        <td>th:text="${movies.ratings}"</td>-->
+<!--    </tr>-->
+<!--    <tr th:object="${movies}">-->
+<!--&lt;!&ndash;        using a thymeleaf expression&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${movies.title}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${movies.name}"t></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${movies.ratings}"></td>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        using the selection expression. you first put the-->
+<!--selection expression object in the <tr> &ndash;&gt;-->
+<!--                <td th:text="*{title}"></td>-->
+<!--                <td th:text="*{name}"></td>-->
+<!--                <td th:text="*{ratings}"></td>-->
+<!--    </tr>-->
+
+<!--</table>-->
+
+<!--<table class="table">-->
+<!--    <thead>-->
+<!--    <tr >-->
+<!--        <th >Title</th>-->
+<!--        <th >Name</th>-->
+<!--        <th >Ratings</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <th:block th:each="movie: ${movies}">-->
+<!--    <tr  >-->
+<!--        <td th:text="${movie.title}" ></td>-->
+<!--        <td th:text="${movie.getName()}" ></td>-->
+<!--        <td th:text="${movie.getRatings()}" ></td>-->
+<!--    </tr>-->
+<!--    </th:block>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+
+
+
+<table class="table" style="width: 200px"; border=" 1px,solid, black">
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Rating</th>
+    </tr>
+    <tr th:each="movie : ${movies}">
+<!--        the movies above is the attribute name from the grade controller-->
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.name}"></td>
+        <td th:text="${movie.ratings}"></td>
+    </tr>
+</table>
+
+<p th:if= "${sales > 50}">Sales are good</p>
+<p th:unless="${sales > 50}">Sales are bad</p>
+
+<!--to use tenary-->
+<p th:text="${sales > 50} ? 'Sales are good' : 'sales are bad'"></p>
+
+<div th:each="product : ${products}"></div>
+<div th:switch="${product == 'beer'}">
+    <p th:case="product == 'beer'">This is a beer</p>
+    <p th:case="product == 'can'">This is a can</p>
+     <p th:case="*">this is a root</p>-->
+</div>
+
+
+
+
+</body>
+</html>
